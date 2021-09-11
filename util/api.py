@@ -29,10 +29,10 @@ def get_emoji_name(user_agent):
         'COMPATIBLE': ':robot:',
         }
     for os_name, emoji_name in os_list.items():
-        if user_agent_upper.find(os_name) >= 0:
+        if user_agent_upper.find((os_name), 0, 30) >= 0:
             return emoji_name
     
-    # OS non trouvé dans le user-agent
+    # OS not found in user-agent
     raise UnknownOSError('OS inconnu dans le user-agent retourné par l\'API : {0}'.format(user_agent))
 
 
